@@ -2,6 +2,12 @@
 
 namespace Model;
 
+// Este modelo funciona como establece la arquitecura active record, permite la integracion de nuevos
+// modelos herendado de esta clase y configurando con self las propias variables de columnasDB y tabla tabla
+// que corresponden a su estructura en la base de datos, tambien con una variable de errores que guarda los errores 
+// que surgan durante el metodo validar
+// NOTA: Quizas no todos los metodos vayan a ser utilizados
+
 class ActiveRecord
 {
     // Base de datos 

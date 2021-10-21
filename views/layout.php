@@ -23,20 +23,77 @@
 </head>
 
 <body>
+    <!-- Header -->
     <header>
-        header
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Container wrapper -->
+            <div class="container">
+                <!-- Navbar brand -->
+                <a class="navbar-brand me-2" href="/login">
+                    <img src="/img/logo.png" class="brand-logo-m" alt="logo climapp" loading="lazy" />
+                </a>
+
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/login">Inicio</a>
+                        </li>
+                    </ul>
+
+                    <!-- Left links -->
+                    <div class="d-flex align-items-center">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link me-2" href="/login">Iniciar Sesion</a>
+                            </li>
+                            <li>
+                                <a class="nav-link me-2" href="/registro">Registrarse</a>
+                            </li>
+                            <li>
+                                <a class="btn btn-danger">
+                                    Cerrar Sesion
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Collapsible wrapper -->
+            </div>
+            <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
     </header>
+    <!-- Header -->
 
 
-    <!-- Contenido Vista -->
+    <!-- Background -->
+    <div class="bg-image bg-size" style="background-image: url('/img/<?php echo $bg ?>.png');
+      ">
+        <div class="mask bg-mask">
+            <!-- Contenedor -->
+            <div class="container mt-5">
+                <?php echo $contenido; ?>
+            </div>
+            <!-- Contenedor-->
+        </div>
+    </div>
+    <!-- Background -->
 
-    <?php echo $contenido; ?>
-
-    <!-- Fin Contenido Vista -->
 
 
     <!-- MDB -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+    <script type=" text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js">
+    </script>
     <!-- Fin MDB -->
 
     <!-- CDN Brainjs -->
@@ -45,7 +102,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Archivo JS de la aplicacion -->
-    <script src="/js/app.js"></script>
+    <!-- <script src="/js/app.js"></script> -->
 </body>
 
 </html>

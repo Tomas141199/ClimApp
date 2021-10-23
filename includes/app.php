@@ -13,5 +13,4 @@ $db = $instance->conectarDB();
 
 use Model\ActiveRecord;
 
-
 ActiveRecord::setDB($db);

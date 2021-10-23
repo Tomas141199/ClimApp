@@ -1,3 +1,15 @@
+<?php
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+//Verifica que haya una sesion iniciada 
+$auth = $_SESSION['login'] ?? false;
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,15 +34,15 @@
     <title>Document</title>
 </head>
 
-<body>
+<body class="bg">
     <!-- Header -->
     <header>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <!-- Container wrapper -->
-            <div class="container">
+            <div class="container-fluid">
                 <!-- Navbar brand -->
-                <a class="navbar-brand me-2" href="/login">
+                <a class="navbar-brand me-2" href="/">
                     <img src="/img/logo.png" class="brand-logo-m" alt="logo climapp" loading="lazy" />
                 </a>
 
@@ -46,24 +58,31 @@
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/login">Inicio</a>
+                            <a class="nav-link active" href="/">Inicio</a>
                         </li>
                     </ul>
 
                     <!-- Left links -->
                     <div class="d-flex align-items-center">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <!-- Verifica si el usuario no esta autenticado para permitirle iniciar sesion  -->
+                            <?php if (!$auth) : ?>
+                            <li>
                             <li class="nav-item">
-                                <a class="nav-link me-2" href="/login">Iniciar Sesion</a>
+                                <a class="nav-link me-2" href="/">Iniciar Sesion</a>
                             </li>
+                            <?php endif; ?>
                             <li>
                                 <a class="nav-link me-2" href="/registro">Registrarse</a>
                             </li>
+                            <!-- Si esta autenticado se le permite cerrar sesion -->
+                            <?php if ($auth) : ?>
                             <li>
-                                <a class="btn btn-danger">
+                                <a href="/logout" class="btn btn-danger">
                                     Cerrar Sesion
                                 </a>
                             </li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </div>
@@ -76,18 +95,12 @@
     <!-- Header -->
 
 
-    <!-- Background -->
-    <div class="bg-image bg-size" style="background-image: url('/img/<?php echo $bg ?>.png');
-      ">
-        <div class="mask bg-mask">
-            <!-- Contenedor -->
-            <div class="container mt-5">
-                <?php echo $contenido; ?>
-            </div>
-            <!-- Contenedor-->
-        </div>
+
+    <!-- Contenedor -->
+    <div class="container-fluid mt-2">
+        <?php echo $contenido; ?>
     </div>
-    <!-- Background -->
+    <!-- Contenedor-->
 
 
 

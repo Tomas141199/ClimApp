@@ -10,15 +10,14 @@ class Database
     private $host = 'localhost';
     private $user = 'root';
     private $pass = '';
-    private $name = 'climapp';
+    private $name = 'clima';
 
     //Conexion establecida en el constructor privado
     private function __construct()
     {
-        $db = new \mysqli($this->host, $this->user, $this->pass, $this->name);
-        if (!$db) {
-            echo "Error no se pudo conecetar";
-            exit;
+        $this->db = new \mysqli($this->host, $this->user, $this->pass, $this->name);
+        if (!$this->db) {
+            debuguear("no se puedo contectar");
         }
     }
 

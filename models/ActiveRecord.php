@@ -31,7 +31,7 @@ class ActiveRecord
             $this->actualizar();
         } else {
             //Creacion de un nuevo registro
-            $this->crear();
+            return $this->crear();
         }
     }
 
@@ -50,10 +50,7 @@ class ActiveRecord
         //   debuguear($query);
         $resultado = self::$db->query($query);
 
-        if ($resultado) {
-            //Redireccionar al usuario 
-            header('Location: /');
-        }
+        return $resultado;
     }
 
     public function actualizar()
@@ -135,7 +132,16 @@ class ActiveRecord
 
     public static function get($cantidad)
     {
-        $query = "SELECT * FROM " . static::$tabla . " LIMIT " . $cantidad;
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id desc LIMIT " . $cantidad;
+
+        $resultado = self::consultarSQL($query);
+
+        return $resultado;
+    }
+
+    public static function getById($cantidad, $id)
+    {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE usuario_id_usuario=$id ORDER BY id desc LIMIT " . $cantidad;
 
         $resultado = self::consultarSQL($query);
 

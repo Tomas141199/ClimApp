@@ -1,10 +1,30 @@
+<?php
+
+if ($resultado) {
+    $mensaje = mostrarNotificacion($resultado);
+} else {
+    $mensaje = false;
+}
+
+?>
+
 <div class="row py-5">
     <div class="col-lg-4 mx-auto">
+
+        <!-- Mensaje de Confirmacion -->
+        <?php if ($mensaje) : ?>
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Bienvenido!</h4>
+            <p>&check; <?php echo $mensaje ?></p>
+            <hr>
+        </div>
+        <?php endif; ?>
+        <!-- Mensaje de Confirmacion -->
 
         <!-- Cadena de Errores -->
         <?php foreach ($errores  as $error) : ?>
         <div class="alert alert-danger" role="alert">
-            <?php echo $error ?>
+            &#215; <?php echo $error ?>
         </div>
         <?php endforeach; ?>
         <!-- Cadena de Errores -->

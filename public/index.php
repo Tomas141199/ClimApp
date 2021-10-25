@@ -14,6 +14,7 @@ $router = new Router();
 //Vistas Generales 
 $router->get('/', [AuthController::class, 'login']);
 $router->get('/registro', [AuthController::class, 'registro']);
+$router->post('/registro', [AuthController::class, 'registro']);
 
 //Vista Protegidas(Solo para usuario autenticados)
 //Login 
@@ -21,6 +22,7 @@ $router->post('/', [AuthController::class, 'login']);
 $router->get('/logout', [AuthController::class, 'logout']);
 //Admin 
 $router->get('/registro-clima', [AdminController::class, 'registro']);
+$router->post('/registro-clima', [AdminController::class, 'registro']);
 //Cliente/Admin 
 $router->get('/predecir-clima', [ClienteController::class, 'predecir']);
 

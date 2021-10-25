@@ -27,7 +27,7 @@ class Router
         //Obtiene la url ingresada/solicitada por que usuario
         $urlActual = $_SERVER['REQUEST_URI'] ?? '/';
         if (strpos($urlActual, '?')) { // cuando sea un get, tome el redirect y no el request
-            $urlActual = $_SERVER['REDIRECT_URL'];
+            $urlActual = $_SERVER['REDIRECT_URL'] ?? '/';
         }
 
         //Obtiene el metodo de solicitud

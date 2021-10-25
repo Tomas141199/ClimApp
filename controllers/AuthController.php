@@ -13,6 +13,8 @@ class AuthController
     {
         $auth = new Usuario;
         $errores = [];
+        $notificacion  = $_GET['resultado'] ?? null;
+
         //Si es que le usuario esta intentando iniciar sesion 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //Se crea un nuevo usuario con los datos recibidos del formulario
@@ -39,13 +41,32 @@ class AuthController
             }
         }
 
-        $router->render('auth/login', ['bg' => 'bg-storm', 'errores' => $errores, "auth" => $auth]);
+        $router->render('auth/login', ['bg' => 'bg-storm', 'errores' => $errores, "auth" => $auth, "resultado" => $notificacion]);
     }
 
     //Metodo que carga la vista de registro 
     public static function registro(Router $router)
     {
-        $router->render('auth/registro', ['bg' => 'bg-lluvia']);
+        $usuario = new Usuario;
+        $errores = [];
+
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            $usuario = new Usuario($_POST['usuario']);
+            $errores = $usuario->validar();
+            if ($usuario->password != $_POST['passwordrep']) {
+                $errores[] = "Las Contrasenas deben coincidir";
+            }
+            if (empty($errorres)) {
+                $resultado = $usuario->guardar();
+                if ($resultado) {
+                    //Redireccionar al usuario 
+                    header('Location: /?resultado=1');
+                }
+            }
+        }
+
+
+        $router->render('auth/registro', ['bg' => 'bg-lluvia', 'usuario' => $usuario, 'errores' => $errores]);
     }
 
     //Metodo para cerrar la sesion del usuario

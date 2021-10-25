@@ -14,7 +14,8 @@
             "Model\\" : "./models",
             "MVC\\" : "./",
             "Controllers\\" : "./controllers",
-            "Singleton\\" : "./includes/config"
+            "Singleton\\" : "./includes/config",
+            "API\\" : "./public/api"
         }
     }
 }

@@ -6,6 +6,8 @@ if (!isset($_SESSION)) {
 //Verifica que haya una sesion iniciada 
 $auth = $_SESSION['login'] ?? false;
 
+//Verifica si es que se esta accediendo a la pagina de prediccion
+$active =  $band ?? false;
 
 ?>
 
@@ -21,6 +23,10 @@ $auth = $_SESSION['login'] ?? false;
     <link rel="stylesheet" href="/css/styles.css" />
     <!-- Normalize -->
     <link rel="stylesheet" href="/css/normalize.css" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
     <!-- CND de MDBootstrap -->
     <!-- Font Awesome -->
@@ -109,13 +115,17 @@ $auth = $_SESSION['login'] ?? false;
     </script>
     <!-- Fin MDB -->
 
+    <!-- Verifica que se encuentra en la pagina de prediccion para hacer la carga de todo el modelo  -->
+    <?php if ($active) : ?>
+    <!-- Archivo JS de la aplicacion -->
     <!-- CDN Brainjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/brain.js/2.0.0-beta.1/brain-browser.min.js"
         integrity="sha512-MI1PUoQHsMVp8aw45rX19K4o8XlVfPB6jaGlHrj0zUv1ZDnq307ji47GWS1MfUfQDNua43c8vK1iCcuOjMXZBA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="/ml/trainMOD1.json"></script>
+    <script src="/js/app.js"></script>
+    <?php endif; ?>
 
-    <!-- Archivo JS de la aplicacion -->
-    <!-- <script src="/js/app.js"></script> -->
 </body>
 
 </html>

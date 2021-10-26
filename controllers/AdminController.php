@@ -36,7 +36,8 @@ class AdminController
             "registro" => $registro,
             "errores" => $errores,
             "resultado" => $resultado,
-            "historial" => $historial
+            "historial" => $historial,
+            "bg"=> 'bg-fog'
         ]);
     }
 }

@@ -18,6 +18,6 @@ class ClienteController
         $auth_id = $_SESSION['usuario'] ?? false;
 
         $historial = Historial::getById(3, $auth_id);
-        $router->render('client/predecir', ["band" => true, "historial" => $historial]);
+        $router->render('client/predecir', ["band" => true, "historial" => $historial, 'bg' => 'bg-storm']);
     }
 }

@@ -41,7 +41,7 @@ class AuthController
             }
         }
 
-        $router->render('auth/login', ['bg' => 'bg-storm', 'errores' => $errores, "auth" => $auth, "resultado" => $notificacion]);
+        $router->render('auth/login', ['bg' => 'bg-soleado', 'errores' => $errores, "auth" => $auth, "resultado" => $notificacion]);
     }
 
     //Metodo que carga la vista de registro 

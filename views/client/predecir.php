@@ -9,10 +9,11 @@ $auth_id = $_SESSION['usuario'] ?? false;
 ?>
 
 <!-- Contenedor Formulario -->
+ 
 <div class="container">
 
     <div class="row" style="padding: 40px">
-        <div class="mb-4" style="font-size: 280%; color: black">
+        <div class="mb-4" style="font-size: 280%; color: white; font-family:Arial, Helvetica, sans-serif;">
             Predictor de clima
         </div>
     </div>
@@ -90,6 +91,7 @@ $auth_id = $_SESSION['usuario'] ?? false;
     </div>
 
 </div>
+
 <!-- Contenedor Formulario -->
 
 <!-- Ultimas Consultas Guardadas -->
@@ -107,7 +109,7 @@ $auth_id = $_SESSION['usuario'] ?? false;
         <?php if (empty($historial)) : ?>
         <p>Tus consultas mas recientes apareceran aqui</p>
         <?php endif; ?>
-        <div id="contenedor-registros" class="row">
+        <div id="contenedor-registros" class="row mb-5">
             <!-- Contenedor Registro Historial -->
             <?php foreach ($historial as $registro) : ?>
             <div class="col-sm">
@@ -132,4 +134,5 @@ $auth_id = $_SESSION['usuario'] ?? false;
 
     </div>
 </div>
+
 <!-- Ultimas Consultas Guardadas -->

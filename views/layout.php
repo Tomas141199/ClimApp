@@ -41,7 +41,7 @@ $active =  $band ?? false;
     <title>Document</title>
 </head>
 
-<body class="bg">
+<body class="wh-auto">
     <!-- Header -->
     <header>
         <!-- Navbar -->
@@ -64,9 +64,7 @@ $active =  $band ?? false;
                 <div class="collapse navbar-collapse" id="navbarButtonsExample">
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/">Inicio</a>
-                        </li>
+                        <!--spacer-->
                     </ul>
 
                     <!-- Left links -->
@@ -78,6 +76,9 @@ $active =  $band ?? false;
                             <li class="nav-item">
                                 <a class="nav-link me-2" href="/">Iniciar Sesion</a>
                             </li>
+                            <li>
+                                <a class="nav-link me-2" href="/registro">Registrarse</a>
+                            </li>
                             <?php endif; ?>
 
                             <?php if ($auth && $isadmin) : ?>
@@ -87,10 +88,7 @@ $active =  $band ?? false;
                             </li>
                             <?php endif; ?>
 
-                            <li>
-                                <a class="nav-link me-2" href="/registro">Registrarse</a>
-                            </li>
-
+                            
                             <!-- Si esta autenticado se le permite cerrar sesion y predecir -->
                             <?php if ($auth) : ?>
                             <li>
@@ -126,12 +124,15 @@ $active =  $band ?? false;
 
 
     <!-- Contenedor -->
-    <div class="container-fluid mt-2">
-        <?php echo $contenido; ?>
+    <div class="bg-image wh-auto" 
+     style="background-image: url('/img/<?php echo $bg ?>.png')">
+     <!--style="background-image: url('https://image.freepik.com/foto-gratis/arboles-al-lado-otro-bosque-cubiertos-niebla-que-arrastra_181624-16397.jpg')">
+     -->  
+     <div class="container-fluid mt-2">
+            <?php echo $contenido; ?>
+        </div>
     </div>
     <!-- Contenedor-->
-
-
 
     <!-- MDB -->
     <script type=" text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js">

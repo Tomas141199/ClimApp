@@ -15,3 +15,11 @@
 .bg-mask {
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.icono {
+  width: 4rem;
+}
+
+.user-icon {
+  width: 1.5rem;
+}

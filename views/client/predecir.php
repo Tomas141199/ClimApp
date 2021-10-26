@@ -78,7 +78,9 @@ $auth_id = $_SESSION['usuario'] ?? false;
                     <div class="col-8">
                         <p class="lead" id="resultado">Comienza Ingresando Los datos!</p>
                     </div>
-                    <div class="col-2"><i class="fas fa-cloud-showers-heavy fa-3x"></i></div>
+                    <div class="col-2"><img id="icono-resultado" class="icono me-2 mb-2" src="/img/nublado.png"
+                            alt="icono clima">
+                    </div>
                 </div>
 
 
@@ -117,7 +119,9 @@ $auth_id = $_SESSION['usuario'] ?? false;
                         <div class="col-8">
                             <p class="h6"><?php echo $registro->resultado_h ?></p>
                         </div>
-                        <div class="col-2"><i class="fas fa-cloud-showers-heavy"></i></div>
+                        <div class="col-2"><img class="icono me-2 mb-2"
+                                src="/img/<?php echo $registro->resultado_h ?>.svg" alt="icono clima">
+                        </div>
                     </div>
                 </div>
             </div>

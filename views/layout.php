@@ -5,7 +5,8 @@ if (!isset($_SESSION)) {
 }
 //Verifica que haya una sesion iniciada 
 $auth = $_SESSION['login'] ?? false;
-
+$nombre_usuario = $_SESSION['nombre'] ?? false;
+$isadmin = $_SESSION['is_admin'] ?? false;
 //Verifica si es que se esta accediendo a la pagina de prediccion
 $active =  $band ?? false;
 
@@ -78,15 +79,37 @@ $active =  $band ?? false;
                                 <a class="nav-link me-2" href="/">Iniciar Sesion</a>
                             </li>
                             <?php endif; ?>
+
+                            <?php if ($auth && $isadmin) : ?>
+                            <li>
+                            <li class="nav-item">
+                                <a class="nav-link me-2" href="/registro-clima">Registrar Clima</a>
+                            </li>
+                            <?php endif; ?>
+
                             <li>
                                 <a class="nav-link me-2" href="/registro">Registrarse</a>
                             </li>
-                            <!-- Si esta autenticado se le permite cerrar sesion -->
+
+                            <!-- Si esta autenticado se le permite cerrar sesion y predecir -->
                             <?php if ($auth) : ?>
                             <li>
-                                <a href="/logout" class="btn btn-danger">
-                                    Cerrar Sesion
+                                <a href="/predecir-clima" class="nav-link me-2">
+                                    Predecir
                                 </a>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <a class="btn btn-link text-muted dropdown-toggle" href="#" role="button"
+                                        id="dropdownMenuLink" data-mdb-toggle="dropdown" aria-expanded="false">
+                                        <img src="/img/user.png" class="user-icon" alt="user icon">
+                                        <?php echo $nombre_usuario ?>
+                                    </a>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item" href="/logout">Cerrar Sesion</a></li>
+                                    </ul>
+                                </div>
                             </li>
                             <?php endif; ?>
                         </ul>

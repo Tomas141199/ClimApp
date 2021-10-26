@@ -49,6 +49,7 @@ async function obtenerPrediccion(e) {
 
 function mostrarResultado(etiqueta) {
   const resultado = document.querySelector("#resultado");
+  $("#icono-resultado").attr("src", `/img/${etiqueta}.svg`);
   resultado.innerHTML = etiqueta;
 }
 
@@ -75,7 +76,9 @@ function actualizarHistorial() {
                         <div class="col-8">
                             <p class="h6">${registro.resultado_h}</p>
                         </div>
-                        <div class="col-2"><i class="fas fa-cloud-showers-heavy"></i></div>
+                          <div class="col-2"><img class="icono me-2 mb-2"
+                                src="/img/${registro.resultado_h}.svg" alt="icono clima">
+                        </div>
                     </div>
                 </div>
             </div>

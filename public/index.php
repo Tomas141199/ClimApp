@@ -16,7 +16,7 @@ $router->get('/', [AuthController::class, 'login']);
 $router->get('/registro', [AuthController::class, 'registro']);
 $router->post('/registro', [AuthController::class, 'registro']);
 
-//Vista Protegidas(Solo para usuario autenticados)
+//Vista Protegidas(Solo para usuarios autenticados)
 //Login 
 $router->post('/', [AuthController::class, 'login']);
 $router->get('/logout', [AuthController::class, 'logout']);

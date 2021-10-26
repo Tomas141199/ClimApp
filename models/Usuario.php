@@ -102,6 +102,7 @@ class Usuario extends ActiveRecord
             self::$errores[] = 'La Contraseña es incorrecta';
         }
         $this->id = $usuario->id;
+        $this->nombre = $usuario->nombre;
         $this->is_admin = $usuario->is_admin;
         return $autenticado;
     }
@@ -111,6 +112,7 @@ class Usuario extends ActiveRecord
         session_start();
         //Se llena el arreglo de sesion
         $_SESSION['usuario'] = $this->id;
+        $_SESSION['nombre'] = $this->nombre;
         $_SESSION['login'] = true;
         $_SESSION['is_admin'] = $this->is_admin;
         header('Location: /predecir-clima');

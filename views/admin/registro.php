@@ -9,11 +9,11 @@ if ($resultado) {
 ?>
 
 
-<div class="container-fluid">
+<div class="container-fluid bg-size">
     <div class="row">
         <div class="col-lg-8 mt-4">
             <!-- Se puede añadir: style="margin-bottom: 15%;" -->
-            <div class="mb-4" style="font-size: 310%; color: black; text-shadow: rgb(200,200,200) 2px 3px 3px;">
+            <div class="mb-4" style="font-size: 310%; color: white; font-family:Arial, Helvetica, sans-serif;">
                 Captura de registros
             </div>
 
@@ -82,7 +82,7 @@ if ($resultado) {
 
         <div class="col-lg-4 px-5 pt-5 pb-4" style="background-color: rgba(255, 255, 255, 0.7);">
             <div class="mt-3 mb-3 fs-4 text-break" style="line-height: 20%;">
-                Últimos registros guardados
+                Últimos registros
                 <br><i class="fas fa-caret-down fa-2x"></i>
             </div>
 

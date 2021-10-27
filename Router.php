@@ -24,6 +24,13 @@ class Router
 
     public function comprobarRutas()
     {
+        session_start();
+
+        $auth = $_SESSION['login'] ?? null;
+        //Arreglo de ruta protegidas
+        $rutas_protegidas = ['/predecir-clima','/registro-clima','/logout'];
+
+
         //Obtiene la url ingresada/solicitada por que usuario
         $urlActual = $_SERVER['REQUEST_URI'] ?? '/';
         if (strpos($urlActual, '?')) { // cuando sea un get, tome el redirect y no el request
@@ -40,6 +47,10 @@ class Router
             $fn = $this->rutasPOST[$urlActual] ?? null;
         }
 
+        //Proteger las rutas 
+        if (in_array($urlActual, $rutas_protegidas) && !$auth) {
+            header('Location: /');
+        }
 
         //Verifica si es que la ruta tiene una funcion 
         if ($fn) {
